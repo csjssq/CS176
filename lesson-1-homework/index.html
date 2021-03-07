@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HW1</title>
+	<style type="text/css">
+		html,body{ width:100%; height:100%;}
+		body {
+		  margin-left: 0px;
+		  margin-top: 0px;
+		  margin-right: 0px;
+		  margin-bottom: 0px;
+		}
+		td
+		{
+		white-space: nowrap;
+		}
+		input{
+			border-radius:10px;
+		}
+	  </style>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body  style="height:100% ;font-size:30px" >
+	<table style="border-collapse: collapse;" border="1" class="table table-striped" height="100%">
+		<tr height="10%">
+			<td width="20%"><center><i><b>功能介绍</b></i></center></td>
+			<td><center><i><b>示意图</b></i></td></center>
+		</tr>
+		<tr height="20%">
+			<td rowspan=$rowspan style='vertical-align: middle;text-align: center;'>支持自定义输入</td>
+			<td rowspan=$row_host1 style='vertical-align: middle;'><div class="submit">
+				<form style="width: 80%;"><b>Fruit:</b><input type="text" placeholder="123">&emsp;
+				<input type="submit" value="Submit">
+				</form>
+			    </div>
+			</td>
+		</tr>
+		<tr height="60%">
+			<td rowspan=$rowspan style='vertical-align: middle;text-align: center;'>支持选择</td>
+			<td>
+				<div class="submit1" style="background:#FFF; color:#000;height:60%;">
+					<form>
+						<b>Fruit:</b>
+					<select style="width: 22%;border-radius:10px">
+					<option value=""></option>
+					<option value="">Banana</option>
+					<option value="">Cherry</option>
+					<option value="">Apple</option>
+					<option value="">Strawberry</option>
+					<option value="">Lemon</option>
+					<option value="">Orange</option>
+					</select>&emsp;
+					<input type="submit" value="Submit">
+					</form>
+				</div>
+				<br>
+				<div class="submit1" style="background:#FFF; color:#000">
+					<form>
+						<b>Fruit:</b><input type="text" placeholder="Banana">&emsp;
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+		    </td>
+		</tr>
+	</table>
+</body>
+</html>
