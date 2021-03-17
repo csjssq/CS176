@@ -1,0 +1,131 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <style type="text/css">
+        <!--
+        body {
+            font: 100% 宋体, 新宋体;
+            background: #666666;
+            margin: 0;
+            /* 最好将 body 元素的边距和填充设置为 0 以覆盖不同的浏览器默认值 */
+            padding: 0;
+            text-align: center;
+            /* 在 IE 5* 浏览器中，这会将容器居中。文本随后将在 #container 选择器中设置为默认左对齐 */
+            color: #000000;
+        }
+
+        .thrColLiq #container {
+            width: 80%;
+            /* 这将创建一个占据 80% 浏览器宽度的容器 */
+            background: #FFFFFF;
+            margin: 0 auto;
+            /* 自动边距（与宽度一起）会将页面居中 */
+            border: 1px solid #000000;
+            text-align: left;
+            /* 这将覆盖 body 元素上的“text-align: center”。 */
+        }
+
+        .thrColLiq #sidebar1 {
+            float: left;
+            /* 在源代码顺序中，此元素必须位于要与之相邻的任何元素之前 */
+            width: 22%;
+            /* 由于此元素是浮动的，因此必须指定宽度 */
+            background: #EBEBEB;
+            /* 将显示背景色，其宽度等于栏中内容的长度，*/
+            padding: 15px 0;
+            /* 顶部和底部的填充将在该 div 中产生视觉空间 */
+        }
+
+        .thrColLiq #sidebar2 {
+            float: right;
+            /* 在源代码顺序中，此元素必须位于要与之相邻的任何元素之前 */
+            width: 23%;
+            /* 由于此元素是浮动的，因此必须指定宽度 */
+            background: #EBEBEB;
+            /* 将显示背景色，其宽度等于栏中内容的长度，*/
+            padding: 15px 0;
+            /* 顶部和底部的填充将在该 div 中产生视觉空间 */
+        }
+
+        .thrColLiq #sidebar1 p,
+        .thrColLiq #sidebar1 h3,
+        .thrColLiq #sidebar2 p,
+        .thrColLiq #sidebar2 h3 {
+            margin-left: 10px;
+            /* 对于将要放在侧栏中的每个元素，都应当设置左边距和右边距 */
+            margin-right: 10px;
+        }
+
+        .thrColLiq #mainContent {
+            margin: 0 24% 0 23.5%;
+            /* 此 div 元素的左边距和右边距会在页面两侧上创建两个外部栏。无论侧栏 div 中包含多少内容，栏内的空间都将保留。如果您希望在每个侧栏中的内容结束时，用 #mainContent div 的文本填充侧栏内的空白，可以删除此边距。 */
+        }
+
+        /* 要重用的各种类 */
+        .fltrt {
+            /* 此类可用来使页面中的元素向右浮动。浮动元素必须位于页面上要与之相邻的元素之前。 */
+            float: right;
+            margin-left: 8px;
+        }
+
+        .fltlft {
+            /* 此类可用来使页面中的元素向左浮动。浮动元素必须位于页面上要与之相邻的元素之前。 */
+            float: left;
+            margin-right: 8px;
+        }
+
+        .clearfloat {
+            /* 此类应当放在 div 或 break 元素上，而且该元素应当是完全包含其子浮动的容器结束之前的最后一个元素 */
+            clear: both;
+            height: 0;
+            font-size: 1px;
+            line-height: 0px;
+        }
+    </style>
+</head>
+
+<body class="thrColLiq">
+
+    <div id="container">
+        <div id="sidebar1">
+            <h3>Sidebar1 </h3>
+            <p>此 div 上所显示的背景色刚好与内容等宽。如果您喜欢改用分界线，而且 #mainContent div 所包含的内容将始终比 #sidebar1 div 中的多，请在 #mainContent div
+                的左边缘放置一个边框。 </p>
+            <p>Donec eu mi sed turpis feugiat feugiat. Integer turpis arcu, pellentesque eget, cursus et, fermentum ut,
+                sapien. </p>
+            <!-- end #sidebar1 -->
+        </div>
+        <div id="sidebar2">
+            <h3>Sidebar2 </h3>
+            <p>此 div 上所显示的背景色刚好与内容等宽。如果您喜欢改用分界线，而且 #mainContent div 所包含的内容将始终比 #sidebar2 div 中的多，请在 #mainContent div
+                的右边缘放置一个边框。 </p>
+            <p>Donec eu mi sed turpis feugiat feugiat. Integer turpis arcu, pellentesque eget, cursus et, fermentum ut,
+                sapien. </p>
+            <!-- end #sidebar2 -->
+        </div>
+        <div id="mainContent">
+            <h1> 主要内容 </h1>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent aliquam, justo convallis luctus
+                rutrum, erat nulla fermentum diam, at nonummy quam ante ac quam. Maecenas urna purus, fermentum id,
+                molestie in, commodo porttitor, felis. Nam blandit quam ut lacus. Quisque ornare risus quis ligula.
+                Phasellus tristique purus a augue condimentum adipiscing. Aenean sagittis. Etiam leo pede, rhoncus
+                venenatis, tristique in, vulputate at, odio. Donec et ipsum et sapien vehicula nonummy. Suspendisse
+                potenti. </p>
+            <h2>H2 级别的标题 </h2>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent aliquam, justo convallis luctus
+                rutrum, erat nulla fermentum diam, at nonummy quam ante ac quam. Maecenas urna purus, fermentum id,
+                molestie in, commodo porttitor, felis. Nam blandit quam ut lacus. Quisque ornare risus quis ligula.
+                Phasellus tristique purus a augue condimentum adipiscing. Aenean sagittis. Etiam leo pede, rhoncus
+                venenatis, tristique in, vulputate at, odio.</p>
+            <!-- end #mainContent -->
+        </div>
+        <!-- 这个用于清除浮动的元素应当紧跟 #mainContent div 之后，以便强制 #container div 包含所有的子浮动 --><br class="clearfloat" />
+        <!-- end #container -->
+    </div>
+</body>
+
+</html>

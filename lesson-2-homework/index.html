@@ -1,0 +1,718 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer">
+  <title>今日头条</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      overflow-y: auto;
+    }
+
+    .top {
+      width: 100%;
+      height: 35px;
+      background-color: #222;
+    }
+
+    .top a {
+      text-decoration: none;
+      color: #fff;
+      display: inline-block;
+      height: 35px;
+      line-height: 35px;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    a:hover {
+      color: #ccc;
+    }
+
+    .bui-icon {
+      font-family: ttIcons !important;
+      display: inline-block;
+      line-height: 1;
+      font-style: normal;
+      font-weight: 400;
+      font-variant: normal;
+      text-transform: none;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .bui-icon::before {
+      display: inline-block;
+      vertical-align: top;
+      border-top: 4px solid #fff;
+      border-right: 4px solid transparent;
+      border-left: 4px solid transparent;
+      content: "";
+      margin-top: 15px;
+    }
+
+    .top-l {
+      float: left;
+    }
+
+    .top-r {
+      float: right;
+    }
+
+    .red {
+      width: 70px;
+      height: 35px;
+      background: #ed4040;
+      text-align: center;
+    }
+
+    .overlool {
+      width: 1220px;
+      margin: 0 auto;
+      margin-top: 15px;
+
+    }
+
+    .overlool .left {
+      width: 118px;
+      height: 800px;
+      margin-left: 20px;
+      float: left;
+    }
+
+    .left img {
+      width: 118px;
+      height: 28px;
+    }
+
+    .l-container ul {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .l-container li {
+      list-style: none;
+      width: 118px;
+      height: 45px;
+      line-height: 45px;
+    }
+
+    #l-li li:hover {
+      color: #fff;
+      background: #ed4040;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .overlool .right {
+      width: 340px;
+      height: 800px;
+      float: right;
+    }
+
+    .center {
+      width: 660px;
+      float: left;
+      margin-left: 45px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .no-mode {
+      padding: 10px 0;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .title-box {
+      font-size: 20px;
+      line-height: 1.3;
+      margin-bottom: 4px;
+      font-weight: 700;
+      max-height: 52px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .link {
+      color: #222;
+    }
+
+    a,
+    a:hover,
+    del,
+    ins,
+    s,
+    u {
+      text-decoration: none;
+    }
+
+    a,
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      background-color: transparent;
+    }
+
+    .footer-bar {
+      font-size: 12px;
+      color: #999;
+      margin-top: 10px;
+    }
+
+    .footer-bar .footer-bar-left {
+      display: inline-block;
+      font-size: 0;
+      vertical-align: middle;
+      line-height: 20px;
+    }
+
+    bar-action.tag {
+      font-size: 12px;
+      color: #eee;
+      margin-right: 10px;
+      padding: 1px 2px;
+      border: 1px solid #eee;
+    }
+
+    .footer-bar .footer-bar-action {
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1;
+      vertical-align: middle;
+    }
+
+    .tag-style-other {
+      border-color: #87a5b5 !important;
+      color: #87a5b5 !important;
+    }
+
+    .footer-bar .footer-bar-action.media-avatar {
+      color: #fff;
+      margin-right: 2px;
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
+      text-align: center;
+      font-size: 12px;
+      border-radius: 50%;
+      background-color: #eee;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .footer-bar .footer-bar-action.media-avatar:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, .08);
+    }
+
+    .footer-bar .footer-bar-action.media-avatar>img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .footer-bar .footer-bar-action.source {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .footer-bar .footer-bar-action {
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1;
+      vertical-align: middle;
+    }
+
+    .footer-bar .footer-bar-right {
+      float: right;
+    }
+
+    .r-top-wrapper {
+      display: flex;
+    }
+
+    .search-input {
+      flex: 1 1;
+      height: 36px;
+      font-size: 14px;
+      padding: 3px 10px;
+      color: #1f2d3d;
+      background-color: #f5f6f7;
+      border: 1px solid #e8e8e8;
+      border-radius: 4px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      outline: 0;
+    }
+
+    .single-mode {
+      height: 102px;
+      padding: 10px 0;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .single-mode .single-mode-lbox {
+      width: 158px;
+      height: 102px;
+      margin-right: 16px;
+      overflow: hidden;
+      float: left;
+    }
+
+    .action-dislike .icon-close-small {
+      position: absolute;
+      top: 2px;
+      right: 0;
+      font-size: 16px;
+      color: #ddd;
+    }
+
+    .bui-icon {
+      font-family: ttIcons !important;
+      font-size: 12px;
+      display: inline-block;
+      line-height: 1;
+      font-style: normal;
+      font-weight: 400;
+      font-variant: normal;
+      text-transform: none;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    address,
+    cite,
+    dfn,
+    em,
+    i,
+    var {
+      font-style: normal;
+    }
+
+    user agent stylesheet i {
+      font-style: italic;
+    }
+
+    .action-dislike {
+      position: relative;
+      z-index: 2;
+      color: transparent;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      overflow: hidden;
+      padding-right: 20px;
+      padding-left: 8px;
+      -webkit-transition: width .3s ease;
+      -moz-transition: width .3s ease;
+      transition: width .3s ease;
+      white-space: nowrap;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .login-wrapper {
+      margin: 16px 0;
+      padding: 20px 20px 12px;
+      background: #f4f5f6;
+    }
+
+    .login-wrapper .login {
+      height: 161px;
+      padding: 20px 28px 15px;
+    }
+
+    .login-wrapper .inner {
+      text-align: center;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      letter-spacing: 0;
+    }
+
+    .login-wrapper .login .login-msg {
+      font-size: 12px;
+      line-height: 17px;
+      color: #777;
+    }
+
+    .login-wrapper .login .login-button {
+      width: 240px;
+      height: 40px;
+      margin: 16px 0 14px;
+      font-size: 14px;
+      line-height: 20px;
+      color: #fff;
+      background: #ed4040;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .login-wrapper .login .third-login .sns:not(:last-child) {
+      margin-right: 24px;
+    }
+
+    .login-wrapper .login .third-login .sns {
+      display: inline-block;
+      position: relative;
+      width: 36px;
+      height: 58px;
+      cursor: pointer;
+      background-repeat: no-repeat;
+      background-size: 100% 36px;
+    }
+
+    .login-wrapper .login .third-login .sns>span {
+      position: absolute;
+      left: 6px;
+      top: 41px;
+      width: 24px;
+      font-size: 12px;
+      line-height: 17px;
+      color: #777;
+    }
+
+    .right .r-middle {
+      width: 300px;
+      border-top: 2px solid #ed4040;
+      background-color: #f4f5f6;
+      margin-bottom: 18px;
+      padding: 17px 20px 20px;
+      ;
+    }
+
+    
+    .button {
+      color: #fff;
+      background-color: #208eda;
+      border: 1px solid #208eda;
+      border-radius: 4px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      position: relative;
+      left: -1px;
+      padding: 13px 24px;
+      cursor: pointer;
+    }
+
+    .r-top-wrapper {
+      box-sizing: content-box;
+    }
+
+    .links-wrapper {
+      overflow: hidden;
+      margin-right: -20px;
+      margin-bottom: -20px;
+    }
+
+    .module-head {
+      color: #222;
+      padding: 0;
+      margin-bottom: 18px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .links-wrapper .item {
+      float: left;
+      margin: 0 20px 20px 0;
+    }
+
+    li {
+      list-style: none;
+
+    }
+
+    li a {
+      text-decoration: none;
+      cursor: pointer;
+      color: #777;
+      line-height: 1.4;
+      font-size: 14px;
+      background-color: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top">
+    <span class="top-l">
+      <a href="#">下载APP</a>
+      <a href="#">北京 &nbsp; 晴 &nbsp;-1℃&nbsp; /&nbsp; 13℃&nbsp;</a></span>
+    <i class="bui-icon"></i>
+    <span class="top-r">
+      <a href="#">侵权投诉</a>
+      <a href="#">头条产品</a>
+    </span>
+  </div>
+  <div class="overlool">
+    <div class="left">
+      <div>
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANgAAAA2CAMAAACSsKctAAAANlBMVEVHcEzuQEDwRETyRUX3TEzvQkLuQEDuQUHuQUHvQEDuQUHuQEDvQkLuQEDuQUHwQUHxQkLtQEDKaksGAAAAEXRSTlMAxiweDlyo49Nri/F5+bhLOapXaIgAAATMSURBVGje7ZrpsqQqDIAb2VEE3/9lx263AAmu3XVv1cn8mFOtIh+JIQuvFyFSzdK8/jsSrbg7BG+HSdjPZi3iJPTchR7a7iYam7mGNvwKTM5vlOQd6n3Z37IhN6zSNhW1TsJqMt/TwQk6G3gxmt0DC5/LfpxS9U38wOJ9RJN38uG4KGBR0wRNxrcHtn4dlPjpv4pCYzqEEffBfAG2XDC9sxyCUbbfH3wVDdbkS2P4FzQGRR4As8NdsEYXy01Y4xMa28C6KljT3gUDXNtYOn5fY3UwNtwEA9+XA397+zONxR03fQ1MerjG0Is4QYK5riLzEMDdC4+CuQoY99sKoW9R20z5zsKwN0gAczDFUohdPzSKRpw4j9Yp0+Jg2GgCrHBf3sAVuIytC8u4RjIwYmGOh8AMvTutfLtgydR8ZjzCgeV32M7eFlyZj2T8GY3lfHwNmChTGmcP5tECNNFBf4m4AqEGhGt8rYEj2i+AwUhwFCocgOs+ok383MFfMecdoGYUHFwkW76Jz5kiHlmQ4TtPY48+iNAnfqgX1a+vtNMueXyjvqox5WTkJFgthq3t0i2ydhY+4MsbYhKMtEu6dxFseqw1Gd+s2raasylPRgCluoJJgnnU3SYaHbS8Y4rJBv3h42AFdN1gGzwWZtgcMHD3Xk5BfYOz67qlsWKDnq3G1DP74DTCZVwQVbA1X57WpWWqk40od4svgInKBrtUPJSpfGPGyYYC6zma/OjJm0RzBcwcBONltAzKIVYxfyBObJlbFAHAtKSyOla4x+c1FiuhAxvOiDcpWBKo4GDbp3sLDA2CJR07EGCaUZYJwUys5OGgBhdYCRYFIWQQHKzrjU/AXCUdQ8C0e0+Y295XwbSsFhiS4qLUC9hePsZ2QqqVT4I3NvtgvrfbXQLxkwsYUoWsgI37uX4GbOXj231+J332DPHsXKb+cknCkC2gkZ1iLQE2RtRPgiVJq6mAadVtUKL5CAea69v9qGxxs/KTMLFrVaozYLLi7UcwrVxWY3XYtjfu32q07cOF/Ob7YKpWLm0Emewj+7m43Ud5EGzdAvjJKnz/jTbCg2B2OBIpXgBzZl9a/xFdhBChwYWXYIEYe1GYzn6fHlPIE3rJDhBBTPxIPHYng5bDObEXQqrEK34PTP+B/c/A/kzxD+wUWLB1AXVJd8cUm3Jkv1W/SpmGlsiVOUw32GxPbMVbZtA9WwneGjo+Xun/34s8hEGLqQ+AgUaVff0cDHCpJ7stSZvKTVW//vNPoXVuNV3rVQ7WVR+juRjRfLqtMeuzkWOtG2SxdtrnuehrSc9utyBpwjwB5sp23eqdI33Og5Wm6IZan3eXKz/wcc8UYdl87ZOsrUtDZmzz6xIwoU9nB2CHKw5FLGBWVkQXzrTsu4Fvw1K+JGRWmjoPiTjto6eqysMeF08NFA0chRVu8jNRyzpogXpF6rF9LuSw2MVzHtnphMxRNLgj6IasdpCBNef8B+CKj53zyI5tWOqdATsP0VP7GPoYJd1QDQuuagw2f30xj9URaFF6MM8pMPSxfa7w4FmqxtTb4YgjCOVPReQRanvgKa5TGuvQ7j9+rq5QD6aNMqRa/LffKb9JvQoR6Al9XCQyrCZCIL5eX5Z4+QEscJfekj/2D7KhSDEKe9jHAAAAAElFTkSuQmCC"></img>
+      </div>
+      <div class="l-container" id="l-li">
+        <ul>
+          <li class="red" style="color:white">推荐</li>
+
+          <li>西瓜视频</li>
+          <li>热点</li>
+          <li>直播</li>
+          <li>图片</li>
+          <li>科技</li>
+          <li>娱乐</li>
+          <li>游戏</li>
+          <li>体育</li>
+          <li>懂车帝</li>
+          <li>财经</li>
+          <li>数码</li>
+          <li>更多</li>
+        </ul>
+      </div>
+    </div>
+    <div class="center">
+      <div>&nbsp;</div>
+
+      <div class="no-mode">
+        <div class="title-box">
+          <a class="link" href="#" target="_blank">回顾习近平的两会时间 微镜头里有大情怀</a>
+          <div class="footer-bar">
+            <div class="footer-bar-left">
+              <a class="footer-bar-action tag tag-style-other" href="#">传媒</a> <a class="footer-bar-action media-avatar"
+                href="#"><img src="https://p6-tt-ipv6.byteimg.com/large/321a3000c5e6f2b8f8b55"></a>
+              <a class="footer-bar-action source" href="#">&nbsp;人民网&nbsp;</a>
+              <a class="footer-bar-action source" href="#">&nbsp;63;评论</a>
+              <span class="footer-bar-action time" href="#">&nbsp;&nbsp;8分钟前</span>
+            </div>
+            <div class="footer-bar-right">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="no-mode">
+        <div class="title-box">
+          <a class="link" href="#" target="_blank">回顾习近平的两会时间 微镜头里有大情怀</a>
+          <div class="footer-bar">
+            <div class="footer-bar-left">
+              <a class="footer-bar-action tag tag-style-other" href="#">传媒</a> <a class="footer-bar-action media-avatar"
+                href="#"><img src="https://p6-tt-ipv6.byteimg.com/large/321a3000c5e6f2b8f8b55"></a>
+              <a class="footer-bar-action source" href="#">&nbsp;人民网&nbsp;</a>
+              <a class="footer-bar-action source" href="#">&nbsp;63;评论</a>
+              <span class="footer-bar-action time" href="#">&nbsp;&nbsp;8分钟前</span>
+            </div>
+            <div class="footer-bar-right">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="no-mode">
+        <div class="title-box">
+          <a class="link" href="#" target="_blank">回顾习近平的两会时间 微镜头里有大情怀</a>
+          <div class="footer-bar">
+            <div class="footer-bar-left">
+              <a class="footer-bar-action tag tag-style-other" href="#">传媒</a> <a class="footer-bar-action media-avatar"
+                href="#"><img src="https://p6-tt-ipv6.byteimg.com/large/321a3000c5e6f2b8f8b55"></a>
+              <a class="footer-bar-action source" href="#">&nbsp;人民网&nbsp;</a>
+              <a class="footer-bar-action source" href="#">&nbsp;63;评论</a>
+              <span class="footer-bar-action time" href="#">&nbsp;&nbsp;8分钟前</span>
+            </div>
+            <div class="footer-bar-right">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="single-mode">
+        <div class="single-mode-lbox">
+          <a class="img-wrap" href="#"><img src="https://p1.pstatp.com/list/190x124/pgc-image/S42aMYj4zmrFk9"
+              class="lazy-load-img"></a>
+        </div>
+        <div class="single-mode-rbox">
+          <div class="single-mode-rbox-inner">
+            <div class="title-box">
+              <a class="link" href="#">人民论坛网评|以梦为马再出发</a>
+            </div>
+            <div class="footer-bar">
+              <div class="footer-bar-left">
+                <a class="footer-bar-action tag tag-style-other" href="#">时政</a> <a
+                  class="footer-bar-action media-avatar" href="#"><img
+                    src="https://p6-tt-ipv6.byteimg.com/origin/pgc-image/734c776a61d74a0ba70d13c76b820e0b"></a>
+                <a class="footer-bar-action source" href="#">&nbsp;中国青年网&nbsp;</a>
+                <a class="footer-bar-action source" href="#">&nbsp;17评论</a>
+                <span class="footer-bar-action time" href="#">&nbsp;&nbsp;45分钟前</span>
+              </div>
+              <div class="footer-bar-right">
+                <div class="action-dislike">
+                  <i class="bui-icon icon-close-small">
+
+                  </i>
+                  不感兴趣
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="single-mode">
+        <div class="single-mode-lbox">
+          <a class="img-wrap" href="#"><img src="https://p1.pstatp.com/list/190x124/pgc-image/S42aMYj4zmrFk9"
+              class="lazy-load-img"></a>
+        </div>
+        <div class="single-mode-rbox">
+          <div class="single-mode-rbox-inner">
+            <div class="title-box">
+              <a class="link" href="#">人民论坛网评|以梦为马再出发</a>
+            </div>
+            <div class="footer-bar">
+              <div class="footer-bar-left">
+                <a class="footer-bar-action tag tag-style-other" href="#">时政</a> <a
+                  class="footer-bar-action media-avatar" href="#"><img
+                    src="https://p6-tt-ipv6.byteimg.com/origin/pgc-image/734c776a61d74a0ba70d13c76b820e0b"></a>
+                <a class="footer-bar-action source" href="#">&nbsp;中国青年网&nbsp;</a>
+                <a class="footer-bar-action source" href="#">&nbsp;17评论</a>
+                <span class="footer-bar-action time" href="#">&nbsp;&nbsp;45分钟前</span>
+              </div>
+              <div class="footer-bar-right">
+                <div class="action-dislike">
+                  <i class="bui-icon icon-close-small">
+
+                  </i>
+                  不感兴趣
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="single-mode">
+        <div class="single-mode-lbox">
+          <a class="img-wrap" href="#"><img src="https://p1.pstatp.com/list/190x124/pgc-image/S42aMYj4zmrFk9"
+              class="lazy-load-img"></a>
+        </div>
+        <div class="single-mode-rbox">
+          <div class="single-mode-rbox-inner">
+            <div class="title-box">
+              <a class="link" href="#">人民论坛网评|以梦为马再出发</a>
+            </div>
+            <div class="footer-bar">
+              <div class="footer-bar-left">
+                <a class="footer-bar-action tag tag-style-other" href="#">时政</a> <a
+                  class="footer-bar-action media-avatar" href="#"><img
+                    src="https://p6-tt-ipv6.byteimg.com/origin/pgc-image/734c776a61d74a0ba70d13c76b820e0b"></a>
+                <a class="footer-bar-action source" href="#">&nbsp;中国青年网&nbsp;</a>
+                <a class="footer-bar-action source" href="#">&nbsp;17评论</a>
+                <span class="footer-bar-action time" href="#">&nbsp;&nbsp;45分钟前</span>
+              </div>
+              <div class="footer-bar-right">
+                <div class="action-dislike">
+                  <i class="bui-icon icon-close-small">
+
+                  </i>
+                  不感兴趣
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="r-top-wrapper">
+        <div class="r-top">
+          <input class="search-input" placeholder="搜索站内资讯、视频或用户" value="">
+
+          <button class="button">
+            搜索
+          </button>
+
+        </div>
+      </div>
+      <div class="login-wrapper">
+        <div class="login inner">
+          <p class="login-msg">
+            登录后可以保存您的浏览喜好、评论、收藏，并与APP同步，更可以发布微头条
+          </p>
+          <a href="#"><button type="button" class="login-button">
+              登录
+            </button></a>
+          <ul class="third-login">
+            <li class="sns qq" data-pid="qzone_sns"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA4VBMVEVHcExKlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM4AAAAAAAAAAAAAAAAAAAAAAAAAAAD1rAX5rgUAAABcQAo+KwicbQ35rgX5rgVMPiQAAAAAAACaFhWFFBN9ExMAAAD////pHx9KlM4jDwb3rAaVlZUdHR0IBgI1NTXn5+dVVVVgYGDDw8PrNDGzfQpOIgvMJiTyYV70d3P90M/W1tbnIiH16OdtHRrvS0dDQ0O4IyKXaQvTkwlfSUzCAAAALXRSTlMAELO/ovQxBReTu985Y/CYCSTrWd3Wg0DKge8HT7IU0cOl49/faDHxMpfHRd9eRY/uAAAB6klEQVQ4y5VV6XqiQBAcEAQ08T4AFTXXl6tFFgjgFdd8Od//gXbURGuIJmz/GrprpqdrqhvG0LR2S26o47HakFttjR2zqlFrGvW8Xqno+brRrBnVgzBdUY08OvKGqujfcael8jevXi6dplyaUjw5lOakqAhXlXIF6fC9pUIOIlpOPlqiJuf2MaVwnAqmFZRdHUWJ/WBS8bMivSTUcW0Nh9a1UFFpy4dSBqfTo431HHCWN8mrKvDXMenTzA7wqa7fyDBgr0XkR0EQ+UQWuNcYrQbv1rGJojhJ/AmRDUfmaxprN2Fnl+ec+PHraMUXXQg026yVykxBEoZxQKncLSbX4XtI4fvHH24f7yENIVCXWQOlxbmZz9bA2ZwzhJJrMCSH3c89otDzQiJvfo+CU9m4sv+8c133abF4e1ssnvjybh+pjAXgrSvYrQCE1B3be17yM6fT6cvj8tkDJnlqKIaz+PDXdR9HG3tAJnkxQM+NAHwlukF6gHBzDXyZLncnmkg4PKHdM4PRzgKzZ+MTgihMx6LVF25FlmOiKASZOXbyBUxsR5SZKNwu+Vucj+LZChdb4Wow8+JJFE1ibza4SrUCNtfloN+/ODs/P7vo9weX6ebK3K7ZB0D2kZJ5SGUfe9kH6X+M5uzD/pffxz88hEUgI+Q2SQAAAABJRU5ErkJggg=="><span>QQ</span></img>
+            </li>
+            <li class="sns weixin" data-pid="weixin"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAANlBMVEVHcEw0wB80wB80wB80wB80wB80wB80wB80wB80wB80wB80wB80wB80wB80wB80wB80wB80wB/sFR1eAAAAEXRSTlMAM6J/wPPbFJQGsmdaQeok+zjJjmUAAAFoSURBVDjLlVWJsoMwCCQXkEvN///swz4N0V4pM45tsoGwLAgwWqwuYWgtYHI1wjtbeUEuhmIkUxgXXl/CyAY244LhYOkZlwM/rRKHfFuKFs2rMAbt5arkPb2+93Un+vQ2xZi87ln/ngrxYnseSPDBCI+MKBj4aCb8O7IMX4wfwdeggalwSpzvN6Gw14i7w+ikzLttd+53TFxMT6+dtt3SM0uEiue/JIAH1otjf3WJFdwZuQrEgd0xTn6Wa2wH6Vxh2cWCrS3ZS+wrFSVBF4PesHnHydsxeYPQyUkd544zg8YoQDvL7M6M3aJHOnNNgXSQ6MW1K/I2csAoUOtSDi/ycBZglZOsoQdll20H5jaY12SSEhZDCzegVXocDxxUWOuKA7Ao4VrCPgSGyFFLqKLQzt1OHA2iGGQ2joxdQUrjAzMKd9AqibDyRbjTrTDfXNPtOj8A5kfK9JCaH3vzg/SH0Tw/7L98Pv4APSQWTNn31goAAAAASUVORK5CYII="><span>微信</span></img>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="r-middle">
+        <div class="module-head">更多</div>
+        <ul class="links-wrapper">
+          <li class="item"><a target="_self" href="#">关于头条</a></li>
+          <li class="item"><a target="_self" href="#">加入头条</a></li>
+          <li class="item"><a target="_self" href="#">媒体报道</a></li>
+          <li class="item"><a target="_self" href="#">媒体合作</a></li>
+          <li class="item"><a target="_self" href="#">产品合作</a></li>
+          <li class="item"><a target="_self" href="#">合作说明</a></li>
+          <li class="item"><a target="_self" href="#">广告投放</a></li>
+          <li class="item"><a target="_self" href="#">联系我们</a></li>
+          <li class="item"><a target="_self" href="#">用户协议</a></li>
+          <li class="item"><a target="_self" href="#">隐私政策</a></li>
+          <li class="item"><a target="_self" href="#">侵权投诉</a></li>
+          <li class="item"><a target="_self" href="#">廉洁举报</a></li>
+          <li class="item"><a target="_self" href="#">企业认证</a></li>
+          <li class="item"><a target="_self" href="#">肺炎求助</a></li>
+          <li class="item"><a target="_self" href="#">辟谣专区</a></li>
+        </ul>
+      </div>
+      <div class="r-middle">
+        <div class="module-head">友情链接</div>
+        <ul class="links-wrapper">
+          <li class="item"><a target="_self" href="#">光明网</a></li>
+          <li class="item"><a target="_self" href="#">央广网</a></li>
+          <li class="item"><a target="_self" href="#">国际在线</a></li>
+          <li class="item"><a target="_self" href="#">中国西藏网</a></li>
+          <li class="item"><a target="_self" href="#">参考消息</a></li>
+          <li class="item"><a target="_self" href="#">环球在线</a></li>
+          <li class="item"><a target="_self" href="#">中青在线</a></li>
+          <li class="item"><a target="_self" href="#">中青网</a></li>
+          <li class="item"><a target="_self" href="#">用户协议</a></li>
+          <li class="item"><a target="_self" href="#">隐私政策</a></li>
+          <li class="item"><a target="_self" href="#">侵权投诉</a></li>
+          <li class="item"><a target="_self" href="#">廉洁举报</a></li>
+          <li class="item"><a target="_self" href="#">企业认证</a></li>
+          <li class="item"><a target="_self" href="#">肺炎求助</a></li>
+          <li class="item"><a target="_self" href="#">辟谣专区</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
