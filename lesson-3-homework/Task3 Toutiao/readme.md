@@ -1,6 +1,7 @@
 ## 运行方法
   - 1. node http.js 打开8080端口即可 http://localhost:8080/index.html
-       提前安装好npm install express
+       提前安装好npm install express 上传时并没有上传node_modules文件夹（小文件数目太多了）
+       在本地测试时使用此方法或者下面两种方法（都已经测试过）
   - 2. 或者利用vscode 插件 live server 打开
   - 3. 或者利用xampp apache start
 
