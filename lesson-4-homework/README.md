@@ -24,6 +24,6 @@ You will also see any lint errors in the console.
   &nbsp;
 - 单图循环
   - 因为这次使用create-react-app 创建单页web 还在学习react-router知识，因此使用同一个页面进行测试，在app.js中修改
-  <img src="2.gif"></img>
+  <center><img src="2.gif"></img><center>
   &nbsp;
   - 另外，利用react-slick，因此单图无限循环并不显示下方dot实际上是利用两张图片假实现。对回调过程还有些迷惑。
