@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .stick {
+            width: 100px;
+            height: 4px;
+            background: #f50;
+            animation-name: rotate;
+            animation-duration: 0.7s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                height: 4px;
+            }
+
+            50% {
+                height: 100px;
+            }
+
+            100% {
+                height: 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="result"><button type="button">start calc</button></div>
+
+    <div><input type="number" /></div>
+    <div class="log"></div>
+
+    <div class="stick"></div>
+
+    <script>
+        const btn=document.querySelector('button');
+        const input=document.querySelector('input');
+        const w= new Worker('fibonacci.js');
+        btn.addEventListener('click', () => {
+            const n=Number(input.value);
+            print('Waiting...');
+            w.addEventListener('message',function(event){
+                var timer2 = (new Date()).valueOf();
+                var res = event.data;
+                var costInMs = timer2 - timer;
+                print(`Result: ${res} in ${costInMs}ms`);
+            },false);
+            var timer = (new Date()).valueOf();
+            w.postMessage(n);
+
+        });
+        
+        const log=document.querySelector('.log');
+        function print(str) {
+            log.innerText=str;
+        }
+    </script>
+</body>
+
+</html>
