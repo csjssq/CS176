@@ -7,6 +7,10 @@ front-end stack:
 - if you are in mainland, you may not access the api. Use ihost to get it easily.
 <img src="demo.png"></img>
 
+**lighthouse** awful but can be polished in future
+<img src="homelighthouse.png"></img>
+<img src="detaillighthouse.png"></img>
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
